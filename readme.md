@@ -1,6 +1,8 @@
 # README
 
-Demo tool for managing user's debts integrating a .NET Backend with a Xamarin Forms frontend.
+This repository is a test project putting into use the platform Azure Mobile Services allowing its implementation from relatively any platform capable of implementing Mobile Services.
+
+Configurations such as Authorization and Identity Providers are handled directly from the Azure Portal.
 
 
 ## Stack
@@ -43,3 +45,7 @@ Demo tool for managing user's debts integrating a .NET Backend with a Xamarin Fo
 
 - PayMe.Tests.Framework: Data and Framework testig
 
+
+## Contributions
+
+If you're willing to collaborate, feel free doing it by making a fork of this repository and sent us your changes!
