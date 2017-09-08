@@ -5,22 +5,15 @@ This repository is a test project putting into use the platform Azure Mobile Ser
 Configurations such as Authorization and Identity Providers are handled directly from the Azure Portal.
 
 
+You can check out the [webtask.io Simple Demo](http://jcordero.azurewebsites.net/payme-wt.html) of this backend.
+
+
 ## Stack
 
 - Autofac
 - EntityFramework
 - Web API 2.2
 - Azure Mobile Services
-
-## Roadmap
-
-- Update Tests
-
-- Push Notifications
-
-- WPF
-
-- Xamarin Android & iOS projects
 
 ## Solution
 
@@ -45,6 +38,18 @@ Configurations such as Authorization and Identity Providers are handled directly
 
 - PayMe.Tests.Framework: Data and Framework testig
 
+
+## Roadmap
+
+- Update / Expand Tests
+
+- Custom JWT generation (on demand)
+
+- Push Notifications
+
+- WPF
+
+- Xamarin Android & iOS projects
 
 ## Contributions
 
