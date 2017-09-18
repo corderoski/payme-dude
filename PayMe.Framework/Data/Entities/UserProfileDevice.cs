@@ -15,8 +15,10 @@ namespace PayMe.Framework.Data.Entities
         [Key]
         [Column(Order = 2)]
         public string DeviceUniqueId { get; set; }
+        public string Model { get; set; }
         public string Platform { get; set; }
         public string Version { get; set; }
+        public string IPLocation { get; set; }
         public DateTimeOffset CreatedAt { get ; set ; }
     }
 }

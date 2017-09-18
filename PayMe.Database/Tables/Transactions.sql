@@ -3,7 +3,7 @@
     [Type]        INT                NOT NULL,
     [Amount]      DECIMAL (18)       NOT NULL,
     [Description] NVARCHAR (2000)    NOT NULL,
-    [ContactId]   NVARCHAR (250)     NOT NULL,
+    [ContactId]   NVARCHAR (128)     NOT NULL,
     [UserId]      NVARCHAR (128)     NOT NULL,
     [CreatedAt]   DATETIMEOFFSET (7) CONSTRAINT [DF_Transactions_CreatedAt] DEFAULT (sysutcdatetime()) NOT NULL,
     [UpdatedAt]   DATETIMEOFFSET (7) NULL,

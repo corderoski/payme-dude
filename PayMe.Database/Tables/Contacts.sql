@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Contacts] (
-    [Id]                    NVARCHAR (250)     NOT NULL,
+    [Id]                    NVARCHAR (128)     NOT NULL,
     [Name]                  NVARCHAR (50)      NOT NULL,
     [DeviceUniqueContactId] NVARCHAR (250)     NULL,
     [Notes]                 NVARCHAR (2000)    NOT NULL,

@@ -76,6 +76,7 @@ namespace PayMe.Services.WebApi.Controllers
         public async Task<IHttpActionResult> CreateUserAsync([FromBody]JToken body)
         {
             var model = body.ToObject<RegisterAuth>();
+            model.ClientIP = Request.GetClientIp();
 
             _userDomainManager = ApiControllerExtensions.GetAzureDomainManager<User>(_dataContext, Request);
             try

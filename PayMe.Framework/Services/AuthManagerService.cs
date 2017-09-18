@@ -2,6 +2,7 @@
 using PayMe.Framework.Data.Context;
 using PayMe.Framework.Data.DTO;
 using PayMe.Framework.Data.Entities;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -56,16 +57,7 @@ namespace PayMe.Framework.Services
                         ResultCode = AuthResultCode.Exist,
                         UserId = providerAuthRegistrationAlreadyExist.UserId
                     };
-
-                    //TODO: register new device
-                    var userDevice = new UserProfileDevice
-                    {
-                        UserId = providerAuthRegistrationAlreadyExist.UserId,
-                        DeviceUniqueId = model.DeviceId,
-                        Platform = model.Platform,
-                        Version = model.Version,
-                        CreatedAt = _dateTimeManagerService.GetUniversalDateTime()
-                    };
+                    UserProfileDevice userDevice = GetNewUserProfileDevice(model, providerAuthRegistrationAlreadyExist.UserId);
                     _dataContext.UserProfileDevices.Add(userDevice);
 
                     await _dataContext.SecureSaveChangesAsync();
@@ -95,14 +87,7 @@ namespace PayMe.Framework.Services
                         _dataContext.UserProfileAuthorizations.Add(userAuth);
                     }
 
-                    var userDevice = new UserProfileDevice
-                    {
-                        UserId = user.Id,
-                        DeviceUniqueId = model.DeviceId,
-                        Platform = model.Platform,
-                        Version = model.Version,
-                        CreatedAt = _dateTimeManagerService.GetUniversalDateTime()
-                    };
+                    var userDevice = GetNewUserProfileDevice(model, user.Id);
                     _dataContext.UserProfileDevices.Add(userDevice);
 
                     await _dataContext.SecureSaveChangesAsync();
@@ -142,23 +127,88 @@ namespace PayMe.Framework.Services
                     {
                         var userExist = _dataContext.Users.SingleOrDefault(p => p.Id.Equals(deviceUniqueIdOrUserId));
                         if (userExist != null)
+                        {
                             authResult = new AuthResult
                             {
                                 Succeeded = true,
                                 ResultCode = AuthResultCode.Exist,
                             };
+                        }
                         else
+                        {
                             authResult = new AuthResult
                             {
                                 Succeeded = false,
                                 ResultCode = AuthResultCode.NotFound,
                                 Errors = new[] { "Registration cannot be found." }
                             };
+                        }
                     }
 
                     return authResult;
                 });
             }
+        }
+
+        public async Task<AuthResult> VerifyAuthFromProviderAsync(string providerName, string sid)
+        {
+            if (string.IsNullOrEmpty(providerName) || string.IsNullOrEmpty(sid))
+            {
+                return new AuthResult
+                {
+                    Succeeded = false,
+                    ResultCode = AuthResultCode.Error,
+                    Errors = new[] { "The Verification has invalid parameters." }
+                };
+            }
+            else
+            {
+                return await Task.Run(() =>
+                {
+
+                    System.Diagnostics.Trace.TraceInformation($"Looking for user in db: {sid}");
+
+                    AuthResult authResult = null;
+
+                    var userAuthorization = _dataContext.UserProfileAuthorizations
+                        .SingleOrDefault(p => 
+                        p.Provider.Equals(providerName, StringComparison.InvariantCulture) &&
+                        sid.StartsWith(p.ProviderUserId));
+
+                    if(userAuthorization != null)
+                    {
+                        authResult = new AuthResult
+                        {
+                            Succeeded = true,
+                            ResultCode = AuthResultCode.Exist,
+                            UserId = userAuthorization.UserId
+                        };
+                    }
+                    else
+                        authResult = new AuthResult
+                        {
+                            Succeeded = false,
+                            ResultCode = AuthResultCode.NotFound,
+                            Errors = new[] { "Unmatched parameters." }
+                        };
+
+                    return authResult;
+                });
+            }
+        }
+
+        private UserProfileDevice GetNewUserProfileDevice(RegisterAuth model, string userId)
+        {
+            return new UserProfileDevice
+            {
+                UserId = userId,
+                DeviceUniqueId = model.DeviceId,
+                Model = !string.IsNullOrEmpty(model.Model) ? $"{model.Model} ({model.Idiom})" : "",
+                Platform = model.Platform,
+                Version = model.Version,
+                IPLocation = model.ClientIP,
+                CreatedAt = _dateTimeManagerService.GetUniversalDateTime()
+            };
         }
 
     }

@@ -80,17 +80,11 @@
     <Reference Include="Microsoft.Azure.Mobile.Server.Entity, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Entity.2.0.0\lib\net46\Microsoft.Azure.Mobile.Server.Entity.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Server.Home, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Home.2.0.0\lib\net46\Microsoft.Azure.Mobile.Server.Home.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Login, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Login.2.0.0\lib\net46\Microsoft.Azure.Mobile.Server.Login.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Notifications, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Notifications.1.1.157.1\lib\net45\Microsoft.Azure.Mobile.Server.Notifications.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Azure.Mobile.Server.Quickstart, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Quickstart.1.1.157.1\lib\net45\Microsoft.Azure.Mobile.Server.Quickstart.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Server.Tables, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Tables.2.0.0\lib\net46\Microsoft.Azure.Mobile.Server.Tables.dll</HintPath>
@@ -184,6 +178,9 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
@@ -191,16 +188,16 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="AutoMapper.Net4">
-      <HintPath>..\packages\AutoMapper.5.2.0\lib\net40\AutoMapper.Net4.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfigurationWebApiModule.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Helpers\ApiControllerSecurityHelper.cs" />
+    <Compile Include="Helpers\CurrentUserOwinHandler.cs" />
+    <Compile Include="Helpers\CurrentUserDelegatingHandler.cs" />
     <Compile Include="Helpers\OwinExceptionHandler.cs" />
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="App_Start\CustomMapperInitializer.cs" />
@@ -216,6 +213,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Startup.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -240,6 +240,24 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Android|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-API|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

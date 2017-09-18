@@ -35,7 +35,8 @@ namespace PayMe.Services.WebApi.Controllers
 
         public IQueryable<Transaction> Get()
         {
-            return Query();
+            var userId = this.GetUserId();
+            return Query().Where(p => p.UserId == userId);
         }
 
         public SingleResult<Transaction> GetById(string id)

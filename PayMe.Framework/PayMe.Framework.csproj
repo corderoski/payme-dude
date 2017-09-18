@@ -29,6 +29,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-Android|AnyCPU'">
+    <OutputPath>bin\Release-Android\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release-API|AnyCPU'">
+    <OutputPath>bin\Release-API\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
@@ -81,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Annotations\ValidNumericValue.cs" />
+    <Compile Include="Data\AppCommonConstant.cs" />
     <Compile Include="Data\Context\DataContext.cs" />
     <Compile Include="Data\Context\IDatabaseContextTransaction.cs" />
     <Compile Include="Data\Context\IDataContext.cs" />
@@ -100,7 +119,6 @@
     <Compile Include="Services\DateTimeManagerService.cs" />
     <Compile Include="Services\ICurrentUserService.cs" />
     <Compile Include="Services\IDateTimeManagerService.cs" />
-    <Compile Include="Services\IEndpointConnectorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthManagerService.cs" />
     <Compile Include="Services\IAuthManagerService.cs" />

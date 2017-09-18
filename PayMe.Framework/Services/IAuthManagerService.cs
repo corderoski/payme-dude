@@ -9,6 +9,7 @@ namespace PayMe.Framework.Services
     {
         Task<AuthResult> RegisterAuthAsync(IDomainManager<User> domainManager, RegisterAuth model);
         Task<AuthResult> VerifyAuthAsync(string deviceUniqueIdOrUserId);
+        Task<AuthResult> VerifyAuthFromProviderAsync(string providerName, string sid);
 
     }
 }

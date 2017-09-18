@@ -3,6 +3,7 @@ using Autofac.Integration.WebApi;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.Authentication;
 using Microsoft.Azure.Mobile.Server.Config;
+using Microsoft.Azure.Mobile.Server.Tables.Config;
 using Owin;
 using PayMe.Services.WebApi.Config;
 using PayMe.Services.WebApi.Helpers;
@@ -13,6 +14,7 @@ using System.Web.Http.ExceptionHandling;
 
 namespace PayMe.Services.WebApi
 {
+
     public partial class Startup
     {
 
@@ -20,10 +22,12 @@ namespace PayMe.Services.WebApi
         {
             var config = new HttpConfiguration();
             config.MapHttpAttributeRoutes();
+
+            config.Routes.IgnoreRoute("IgnoreFavicon", "*.ico");
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional });
+                name: "Home",
+                routeTemplate: string.Empty,
+                defaults: new { controller = "Home", action = "Index" });
 
             config.Formatters.JsonFormatter.SerializerSettings = SerializationHelper.GetJsonSerializerSettings();
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("application/octet-stream"));
@@ -31,9 +35,13 @@ namespace PayMe.Services.WebApi
             config.Services.Replace(typeof(IExceptionHandler), new ContentNegotiatedExceptionHandler());
 
             new MobileAppConfiguration()
-                 .UseDefaultConfiguration()
-                 .MapApiControllers()
-                 .ApplyTo(config);
+                .MapApiControllers()
+                .AddTables(
+                    new MobileAppTableConfiguration()
+                        .MapTableControllers()
+                        .AddEntityFramework()
+                    )
+                .ApplyTo(config);
 
             #region Dependency Injection
 
@@ -68,9 +76,9 @@ namespace PayMe.Services.WebApi
             }
 
             app.UseOwinExceptionHandler();
+            app.Use<CurrentUserOwinHandler>(container.Resolve<Framework.Services.IAuthManagerService>());
             app.UseWebApi(config);
         }
-
 
         internal const string AppName = "Services.WebApi";
 
