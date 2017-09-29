@@ -1,7 +1,5 @@
 # README
 
-Demo tool for managing user's debts integrating a .NET Backend with a Xamarin Forms frontend.
-
 
 This repository is a test project putting into use the platform Azure Mobile Services allowing its implementation from relatively any platform capable of implementing Mobile Services.
 
@@ -23,11 +21,11 @@ You can check out the [webtask.io Simple Demo](https://jcorderodr.github.io/paym
 
 - Update Tests
 
-- Share debts +Custom messages
+- Share debts + Custom messages
 
-- WPF
+- WPF Client
 
-- Xamarin iOS & UWP projects
+- Xamarin iOS & UWP Clients
 
 - Push Notifications
 
