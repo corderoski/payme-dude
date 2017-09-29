@@ -19,8 +19,6 @@ namespace PayMe.Services.WebApi.Helpers
                 ErrorHash = context.Request.IsLocal() ? context.Exception.Message : Guid.NewGuid().ToString(),
             };
 
-            //TODO: Save trace in Server
-
             var response = context.Request.CreateResponse(HttpStatusCode.InternalServerError, metadata);
             context.Result = new ResponseMessageResult(response);
         }

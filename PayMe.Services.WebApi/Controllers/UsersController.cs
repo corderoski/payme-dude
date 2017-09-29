@@ -96,7 +96,6 @@ namespace PayMe.Services.WebApi.Controllers
             }
         }
 
-        //TODO: Implement token generation
         private string GetAuthenticationTokenForUser(string userId)
         {
             var claims = new Claim[]

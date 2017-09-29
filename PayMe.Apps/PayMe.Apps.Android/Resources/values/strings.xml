@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string name="app_name">Pay Me, Dude!</string>
+  <string name="app_description">Lets you control (and remember) how much you or someone owns.</string>
+  <string name="author">Corderoski</string>
+</resources>

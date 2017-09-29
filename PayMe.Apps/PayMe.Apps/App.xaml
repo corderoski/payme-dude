@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PayMe.Apps.App">
+  <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#607D8B</Color>
+            <Color x:Key="PrimaryDark">#263238</Color>
+            <Color x:Key="Accent">#37474F</Color>
+
+            <Color x:Key="LightBackgroundColor">#ECEFF1</Color>
+            <Color x:Key="DarkBackgroundColor">#263238</Color>
+
+            <Color x:Key="ListItemPrimaryStyle">#000000</Color>
+            <Color x:Key="ListItemSecondaryStyle">#37474F</Color>
+            <Color x:Key="BackGroundIndicatorStyle">#263238</Color>
+
+            <Color x:Key="MediumGrayTextColor">#4d4d4d</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Color x:Key="PrimaryTextColor">White</Color>
+            <Color x:Key="DangerRedColor">#ef4444</Color>
+
+            <Color x:Key="NegativeBalanceStyle">#a72f2f</Color>
+            <Color x:Key="PositiveBalanceStyle">#3c8d33</Color>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

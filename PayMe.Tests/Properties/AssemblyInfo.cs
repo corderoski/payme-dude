@@ -2,11 +2,11 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("PayMe.Tests.Framework")]
+[assembly: AssemblyTitle("Pay Me, Dude! Tests Framework")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PayMe.Tests.Framework")]
+[assembly: AssemblyCompany("Corderoski")]
+[assembly: AssemblyProduct("Pay Me, Dude!")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

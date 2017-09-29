@@ -7,5 +7,6 @@ namespace PayMe.Framework.Data.Entities
     {
         public string TagId { get; set; }
         public string TransactionId { get; set; }
+        public string UserId { get; set; }
     }
 }

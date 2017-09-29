@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PayMe.Apps.Views.TransactionItemView"
+             x:Name="ContentItem"
+             xmlns:localcontrol="clr-namespace:PayMe.Apps.Views;assembly=PayMe.Apps"
+             xmlns:local="clr-namespace:PayMe.Apps.Services.Converters;assembly=PayMe.Apps">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <local:CurrencyStringValueConverter x:Key="CurrencyStringFormatter"></local:CurrencyStringValueConverter>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <StackLayout Spacing="0" Padding="4" Margin="0">
+            <Grid x:Name="GridLayout"  HorizontalOptions="FillAndExpand" RowSpacing="0" Padding="0" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="26"/>
+                    <RowDefinition Height="18"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"></ColumnDefinition>
+                    <ColumnDefinition Width="20*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RowTappedCommand}" CommandParameter="{Binding  Source={x:Reference ContentItem}}" 
+                                          NumberOfTapsRequired="1">
+                    </TapGestureRecognizer>
+                </Grid.GestureRecognizers>
+
+                <Label Text="{Binding ContactName}" TextColor="{StaticResource ListItemPrimaryStyle}" 
+                       FontSize="Large" FontAttributes="Bold" 
+                       Grid.Row="0" Grid.Column="0" />
+                <Label Text="{Binding Amount, Converter={StaticResource CurrencyStringFormatter}}" TextColor="{Binding NumericColorString}" 
+                       HorizontalTextAlignment="End" 
+                       Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="1" />
+
+                <Label Text="{Binding Description}" TextColor="{StaticResource ListItemSecondaryStyle}" 
+                       FontAttributes="Italic" 
+                       Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

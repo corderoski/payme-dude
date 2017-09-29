@@ -76,7 +76,7 @@ namespace PayMe.Services.WebApi
             }
 
             app.UseOwinExceptionHandler();
-            app.Use<CurrentUserOwinHandler>(container.Resolve<Framework.Services.IAuthManagerService>());
+            app.UseCustomCurrentUserHandler(container.Resolve<Framework.Services.IAuthManagerService>());
             app.UseWebApi(config);
         }
 

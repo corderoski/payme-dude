@@ -4,7 +4,7 @@ using System;
 namespace PayMe.Framework.Data.Entities
 {
 
-    public partial class User : EntityData, ISyncEntity
+    public class User : EntityData, ISyncEntity
     {
         public string Email { get ; set ; }
         public string UserName { get; set; }

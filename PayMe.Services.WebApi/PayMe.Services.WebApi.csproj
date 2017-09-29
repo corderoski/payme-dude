@@ -194,10 +194,10 @@
     <Compile Include="App_Start\DependencyConfigurationWebApiModule.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TransactionTagController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Helpers\ApiControllerSecurityHelper.cs" />
     <Compile Include="Helpers\CurrentUserOwinHandler.cs" />
-    <Compile Include="Helpers\CurrentUserDelegatingHandler.cs" />
     <Compile Include="Helpers\OwinExceptionHandler.cs" />
     <Compile Include="App_Start\Startup.MobileApp.cs" />
     <Compile Include="App_Start\CustomMapperInitializer.cs" />
@@ -229,7 +229,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\PayMe-Dev - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayMe.Framework\PayMe.Framework.csproj">

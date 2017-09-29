@@ -1,4 +1,5 @@
 ﻿using Microsoft.Owin;
+using Owin;
 using PayMe.Framework.Data;
 using PayMe.Framework.Services;
 using System;
@@ -26,16 +27,15 @@ namespace PayMe.Services.WebApi.Helpers
                 throw new ArgumentNullException("next");
 
             _authManagerService = authManagerService;
-
             _next = next;
         }
 
-        // given some entry points, the userId is required so request with no Id, should return 401
+        // given some entry points the userId is required. Requests with no Id should return 401
         public async Task Invoke(IDictionary<string, object> environment)
         {
 
             var serverUser = environment["server.User"];
-            
+
             var claimsPrincipal = (ClaimsPrincipal)serverUser;
             if (null != claimsPrincipal)
             {
@@ -43,14 +43,13 @@ namespace PayMe.Services.WebApi.Helpers
 
                 if (string.IsNullOrEmpty(requestingUser_sid))
                 {
-                    // TODO: report user not registered or authenticated
+                    // report user not registered or authenticated
                 }
                 else
                 {
                     var claim = claimsPrincipal.FindFirst(AppCommonConstant.USER_UNIQUE_ID_CLAIM_NAME);
                     if (claim == null)
                     {
-                        
                         //claimsPrincipal.Identity.Name doesn't returns the same value
                         var identityProvider = claimsPrincipal.FindFirst(AppCommonConstant.USER_IDENTITY_PROVIDER_CLAIM);
                         var userSearchResult = await _authManagerService.VerifyAuthFromProviderAsync(identityProvider.Value, requestingUser_sid);
@@ -70,4 +69,13 @@ namespace PayMe.Services.WebApi.Helpers
         }
 
     }
+
+    public static class OwinCurrentRequestUserExtensions
+    {
+        public static void UseCustomCurrentUserHandler(this IAppBuilder app, IAuthManagerService authManagerService)
+        {
+            app.Use<CurrentUserOwinHandler>(authManagerService);
+        }
+    }
+
 }

@@ -27,7 +27,7 @@ namespace PayMe.Framework.Data.Context
         DbSet<Contact> Contacts { get; set; }
         DbSet<Transaction> Transactions { get; set; }
         DbSet<Tag> Tags { get; set; }
-
+        DbSet<TransactionTag> TransactionTags { get; set; }
         DbSet<User> Users { get; set; }
         DbSet<UserProfileAuthorization> UserProfileAuthorizations { get; set; }
         DbSet<UserProfileDevice> UserProfileDevices { get; set; }

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PayMe.Apps.Views.TransactionGroupingDetailPage"
+             xmlns:vm="clr-namespace:PayMe.Apps.ViewModels;"
+             xmlns:local="clr-namespace:PayMe.Apps.Services.Converters;assembly=PayMe.Apps">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DateTimeStringValueConverter x:Key="DateStringFormatter"></local:DateTimeStringValueConverter>
+            <local:CurrencyStringValueConverter x:Key="CurrencyStringFormatter"></local:CurrencyStringValueConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Margin="0,5,0,0">
+            <ListView x:Name="DetailListView" SeparatorVisibility="Default" HasUnevenRows="False" 
+                      ItemSelected="DetailListView_ItemSelected">
+                <ListView.RowHeight>
+                    <OnPlatform x:TypeArguments="x:Int32" Android="62" iOS="62" WinPhone="80">
+                    </OnPlatform>
+                </ListView.RowHeight>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Spacing="0" Padding="0" Margin="0,0,0,0" VerticalOptions="Start">
+                                <Grid VerticalOptions="Start" RowSpacing="0" ColumnSpacing="0" Padding="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition  Height="24"/>
+                                        <RowDefinition  Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                                        <ColumnDefinition Width="6*"></ColumnDefinition>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image xmlns="http://xamarin.com/schemas/2014/forms" 
+                                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                           Grid.Row="0" Grid.Column="0">
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource" Android="clear_dark.png" iOS="" WinPhone="">
+                                            </OnPlatform>
+                                        </Image.Source>
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer NumberOfTapsRequired="1" 
+                                                                  Tapped="TapGestureRecognizer_Tapped" TappedCallbackParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                    <Label Text="{Binding RegisterDate, Converter={StaticResource DateStringFormatter}}" 
+                                           FontSize="Small" FontAttributes="Bold" 
+                                           Grid.Row="0" Grid.Column="1" />
+                                    <Label Text="{Binding Amount, Converter={StaticResource CurrencyStringFormatter}}" 
+                                           FontSize="Medium" FontAttributes="Bold" 
+                                           Grid.Row="0" Grid.Column="2" />
+
+                                    <Label Text="{Binding Description}" HorizontalOptions="FillAndExpand" 
+                                           FontSize="Default" FontAttributes="Italic" 
+                                           Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" MinimumHeightRequest="44" />
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

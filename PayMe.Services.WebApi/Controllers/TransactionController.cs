@@ -18,7 +18,6 @@ namespace PayMe.Services.WebApi.Controllers
         private readonly ILogger _logger;
         private readonly IDataContext _dataContext;
 
-
         public TransactionController(IDataContext dataContext, ILogger logger)
         {
             _logger = logger;
@@ -36,7 +35,7 @@ namespace PayMe.Services.WebApi.Controllers
         public IQueryable<Transaction> Get()
         {
             var userId = this.GetUserId();
-            return Query().Where(p => p.UserId == userId);
+            return Query();
         }
 
         public SingleResult<Transaction> GetById(string id)

@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppAuthor" xml:space="preserve">
+    <value>Corderoski</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Pay Me, Dude!</value>
+  </data>
+  <data name="Label_Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Label_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Label_Accept" xml:space="preserve">
+    <value>Accept</value>
+  </data>
+  <data name="Label_Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Label_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Label_Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Label_Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Label_EmptySelection" xml:space="preserve">
+    <value>--</value>
+  </data>
+  <data name="Label_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Label_GotIt" xml:space="preserve">
+    <value>Got it!</value>
+  </data>
+  <data name="Label_Info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Label_Menu_PrimaryTab_MyDebts" xml:space="preserve">
+    <value>My Debts</value>
+  </data>
+  <data name="Label_Menu_Secondary_OthersDebts" xml:space="preserve">
+    <value>Expected Dues</value>
+  </data>
+  <data name="Label_Money" xml:space="preserve">
+    <value>Money</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Label_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Label_Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Label_Okay" xml:space="preserve">
+    <value>Okay</value>
+  </data>
+  <data name="Label_Person" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="Label_Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Label_Profile_LastSync" xml:space="preserve">
+    <value>Last Sync:</value>
+  </data>
+  <data name="Label_SignIn" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="Label_SignOut" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
+  <data name="Label_Error_SyncError_Title" xml:space="preserve">
+    <value>Sync Error</value>
+  </data>
+  <data name="Label_SyncExecution_None" xml:space="preserve">
+    <value>none</value>
+  </data>
+  <data name="Label_Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="Label_TagSelector_PlaceholderHelper" xml:space="preserve">
+    <value>Toys</value>
+  </data>
+  <data name="Label_Warning_Title" xml:space="preserve">
+    <value>Warning!</value>
+  </data>
+  <data name="Label_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Message_Profile_SyncRequiresSignin" xml:space="preserve">
+    <value>This operation requires signing in. Do you want to register your account and proceed?</value>
+  </data>
+  <data name="Message_Profile_WarningEraseProfileData" xml:space="preserve">
+    <value>Stop! Signing out will erase your profile data and will disable your sync abilities. Do you still want to proceed?</value>
+  </data>
+  <data name="Message_Error_SyncError" xml:space="preserve">
+    <value>A failure ocurried while syncing. Please, try again.</value>
+  </data>
+  <data name="Message_Transactions_MustSelectAContact" xml:space="preserve">
+    <value>You must select a contact to assign this transaction.</value>
+  </data>
+  <data name="Message_Warning_StopTitle" xml:space="preserve">
+    <value>Stop!</value>
+  </data>
+  <data name="Message_Warning_WaitTitle" xml:space="preserve">
+    <value>Wait!</value>
+  </data>
+  <data name="Label_Transaction_TagEditorInitialText" xml:space="preserve">
+    <value>Uber, Wendy's</value>
+  </data>
+  <data name="Label_Transaction_TransactionsCountFormatted" xml:space="preserve">
+    <value>{0} transactions</value>
+  </data>
+  <data name="Label_Transaction_OneTransactionCountFormatted" xml:space="preserve">
+    <value>{0} transaction</value>
+  </data>
+  <data name="Message_Error_SynErrorDueToBadNetwork" xml:space="preserve">
+    <value>An error ocurried due to bad Network connection (WiFi or Mobile Data). Please, check your connection status and try again.</value>
+  </data>
+  <data name="Label_Settings_DisplayEmptyTransaction" xml:space="preserve">
+    <value>Display empty (zero-based) transactions</value>
+  </data>
+  <data name="Message_Transactions_ContactsNotFoundAndCreate" xml:space="preserve">
+    <value>Wait, you have no contacts. Before adding a Debt, you must create it first.</value>
+  </data>
+  <data name="Message_Error_DeviceWithoutNetworkPermission" xml:space="preserve">
+    <value>This App requires permission to access the network in order to sync and backup your data.</value>
+  </data>
+  <data name="Message_Transactions_ActionWillDeleteTransaction" xml:space="preserve">
+    <value>This action will delete the selected transaction. Are you sure?</value>
+  </data>
+  <data name="Message_Error_SyncErrorDueToAuthentication" xml:space="preserve">
+    <value>This operation requires you signining again.</value>
+  </data>
+  <data name="Label_IsAutoAuthenticationEnabled" xml:space="preserve">
+    <value>Auto-Authentication Enabled</value>
+  </data>
+  <data name="Label_DevelopedBy" xml:space="preserve">
+    <value>Developed by</value>
+  </data>
+  <data name="Label_Profile_SigninMessage" xml:space="preserve">
+    <value>Use {} for signin and backup your data.</value>
+  </data>
+  <data name="Label_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Message_About_AppDescription" xml:space="preserve">
+    <value>lets to manage those stingy people whom owe you some cash. Just type their names and a debt's amount and I'll track that debt for you!</value>
+  </data>
+  <data name="Message_About_SinginInfoLabel_First" xml:space="preserve">
+    <value>Use </value>
+  </data>
+  <data name="Message_About_SinginInfoLabel_Second" xml:space="preserve">
+    <value>  for signin and backup your data.</value>
+  </data>
+  <data name="Message_Help_ContactsDescription" xml:space="preserve">
+    <value>Are the people whom owes you or inverse, you took a loan from them. Just requieres their names and an optional description in case you want to save some notes about them.</value>
+  </data>
+  <data name="Message_Help_DashboardDescription" xml:space="preserve">
+    <value>Here you'll see the Debts ordered by Contact and clicking them will display the related transactions.</value>
+  </data>
+  <data name="Message_Help_TagsDescription" xml:space="preserve">
+    <value>They let you mark and organize your debts. You can tag 'em indicating whether the debt is from taxies, gal or a social meeting in which you ran out of cash.</value>
+  </data>
+  <data name="Label_HowTo" xml:space="preserve">
+    <value>How-To</value>
+  </data>
+  <data name="Message_Error_CannotDeleteDueToRelatedEntities" xml:space="preserve">
+    <value>Cannot delete this item due to being related to registered debts.</value>
+  </data>
+  <data name="Message_CannotSaveEmptyItems" xml:space="preserve">
+    <value>Cannot save this since it's blank.</value>
+  </data>
+  <data name="Label_Profile_CustomSharingPhrase" xml:space="preserve">
+    <value>Custom Sharing Phrase</value>
+  </data>
+  <data name="User_Setting_SharingMessageFormat" xml:space="preserve">
+    <value>Dude, {0} pay me the {1} that you already owe me.</value>
+  </data>
+  <data name="Label_Share" xml:space="preserve">
+    <value>Share</value>
+  </data>
+</root>

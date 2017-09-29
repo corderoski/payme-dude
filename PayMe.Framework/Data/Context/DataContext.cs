@@ -39,9 +39,24 @@ namespace PayMe.Framework.Data.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Conventions.Add(
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            //modelBuilder
+            //    .Entity<Transaction>()
+            //    .HasMany(i => i.Tags).WithMany()
+            //    .Map(x =>
+            //    {
+            //        x.ToTable("TransactionTags");
+            //        x.MapLeftKey("TagId");
+            //        x.MapLeftKey("TransactionId");
+            //    });
         }
 
         public string GenerateEntityId<TEntity>(Func<TEntity, bool> predicate) where TEntity : class, ISyncEntity
@@ -65,7 +80,6 @@ namespace PayMe.Framework.Data.Context
             }
             return newId;
         }
-
 
         public async Task<int> SecureSaveChangesAsync()
         {
@@ -101,6 +115,7 @@ namespace PayMe.Framework.Data.Context
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<TransactionTag> TransactionTags { get; set; }
     }
 
 }

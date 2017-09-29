@@ -5,7 +5,7 @@ using System;
 namespace PayMe.Framework.Data.Entities
 {
 
-    public partial class Contact : EntityData, ISyncEntity
+    public class Contact : EntityData, ISyncEntity
     {
         public string Name { get ; set ; }
         public string DeviceUniqueContactId { get ; set; }
