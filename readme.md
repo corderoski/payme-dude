@@ -5,7 +5,7 @@ This repository is a test project putting into use the platform Azure Mobile Ser
 
 Configurations such as Authorization and Identity Providers are handled directly from the Azure Portal.
 
-You can check out the [webtask.io Simple Demo](https://jcorderodr.github.io/payme-wt.html) of this backend.
+You can check out the [webtask.io Simple Demo](https://jcorderodr.github.io/demo/payme-wt.html) of this backend.
 
 
 ## Stack
